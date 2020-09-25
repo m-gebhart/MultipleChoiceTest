@@ -1,16 +1,12 @@
 <?php
 	session_start();
-	if(!isset($_SESSION['username']))
-	{
-		Header ('Location: /');
-	}
+	require_once('functions.php');
 
-	if(isset($_POST['logout']))
-	{
-		session_unset();
-		session_destroy(); 
-		Header('Location: /');
-	}
+	if(!isset($_SESSION['username']))
+		Header ('Location: /');
+
+	if(isset($_POST['log-out']))
+		log_out();
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,8 +20,12 @@
 <body>
 	<h1>Welcome, <?php echo $_SESSION["username"]?>!</h1>
 	<h2>Topic: Geek Knowledge</h2>
-	<form action="" method="post">
-	<button type="submit" name="logout">LOG-OUT"</button>
-</form>
+	<div class="top">
+		<form action="" method="post">
+			<button type="submit" name="log-out">LOG-OUT</button>
+			<button type="submit" name="save">Save</button>
+		</form>
+	</div>
+
 </body>
 </html>

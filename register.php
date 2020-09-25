@@ -17,7 +17,7 @@
 			<input type="password" name="validated_password" placeholder="Confirm Password" required/>
 			<button type="submit">REGISTER</button>
 		</form>
-		<div style="color: red; text-align: center; margin-bottom:5vh">
+		<div style="color: red; text-align: center; margin-bottom: 5vh">
 			<?php include 'action_register.php'?>
 		</div>
 	</div>
