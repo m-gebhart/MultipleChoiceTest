@@ -46,10 +46,14 @@ input, button {
 
 input {
     padding: 3px;
-    border-color: red;
+    border-color: rgb(0, 125, 181);
 }
 
 button {
     background-color: white;
+}
+
+button:hover {
     border-color: rgb(0, 255, 132);
+    transition: border-color 0.4s;
 }

@@ -1,22 +1,27 @@
 <?php
 session_start();
 require_once('functions.php');
+
 if(isset($_POST['username']) && isset($_POST['password'])){
+	
 	//login process
 	if (check_database("test", "localhost", "root", "")) {
 		$sqli = new mysqli("localhost", "root", "", "test");
 
 		if ($sqli){	
-			//check whether user exists in database
+			//check whether user with matching username and password exists in database
 			$stmt_checklogin = $sqli->prepare("SELECT * FROM users WHERE users.username = ? AND users.password = ?");
 			$stmt_checklogin->bind_param("ss", $_POST['username'], $_POST['password']);
 			$stmt_checklogin->execute();
 			$stmt_checklogin->store_result();
 
 			$row_cnt = $stmt_checklogin->num_rows;
+
+			//if user is found
 			if ($row_cnt == 1){
 				$_SESSION['username'] = $_POST['username'];
 				$_SESSION['user_id'] = get_user_id($sqli, $_POST['username']);
+				$_SESSION['result'] = 0;
 				Header ('Location: /test.php');
 			}
 			else {
@@ -25,8 +30,10 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 		}
 	}
 	else
-		echo "User not found!";
+		echo "Please register below!"; //only for very first user due to database not being created yet
 }
+
+//leading back to log-in / index page on succesful registration
 elseif(isset($_GET['on_registration'])) {
 	if ($_GET['on_registration'] == "true")
 		echo "<span style='color: green'>Registration Succesful!</br><span style='font-size: 1rem'>Please Log-In Again!</span></span>";

@@ -10,16 +10,16 @@
 <body>
 	<h1>Welcome To The BA4 Test!</h1>
 	<div class="form-box">
-		<h2 style="text-decoration: underline">LOG-IN<h2>
+		<h2 style="text-decoration: underline">LOG-IN</h2>
 		<form method="post" action="">
-			<input type="text" name="username" placeholder="Your Username" required/>
-			<input type="password" name="password" placeholder="Your Password" required/>
+			<input type="text" name="username" id="username" placeholder="Your Username" required/>
+			<input type="password" name="password" id="password" placeholder="Your Password" required/>
 			<button type="submit">LOG-IN</button>
 		</form>
 		<div style="color: red; text-align: center; margin-bottom:5vh">
 			<?php include 'action_login.php'?>
 		</div>
 	</div>
-	<p>No Account?</br><a href="/register.php">Register Here!<a></p>
+	<p>No Account?<br><a href="/register.php">Register Here!</a></p>
 </body>
 </html>

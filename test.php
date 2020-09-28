@@ -1,16 +1,4 @@
-<?php
-	session_start();
-	require_once('functions.php');
-
-	if(!isset($_SESSION['username']))
-		Header ('Location: /');
-
-	if(isset($_POST['log-out']))
-		log_out();
-
-	if(isset($_POST['save']))
-		save();
-?>
+<?php include 'action_test.php'?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +15,7 @@
 		<div class="top">
 			<button type="submit" name="save">SAVE</button>
 			<button type="submit" name="log-out">Log-Out</button>
+			<button type="submit" name="reset">Reset</button>
 		</div>
 		<div class="multiple-choice">
 			<h3>1. How many movies does the <i>Home Alone</i> series currently (as of 2020) consist of?</h3>
