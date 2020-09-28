@@ -1,5 +1,5 @@
 <?php
-	require_once('functions.php');
+	require_once('functions_general.php');
 
 	//Save progress for current user (by user_id)
 	function save(){
@@ -22,7 +22,7 @@
 		}
 	}
 
-	//Get answer value from save data to a specific question
+	//Get answer value (1-3) from save data to a specific question (one, two, three etc.)
 	function get_save_int($question){
 		$save_sqli = new mysqli("localhost", "root", "", "test");
 		if($save_sqli){
@@ -53,6 +53,7 @@
 		}
 	}
 
+	//Reset save data to 0
 	function reset_save(){
 		$reset_sqli = new mysqli("localhost", "root", "", "test");
 			if ($reset_sqli){
@@ -70,6 +71,7 @@
 		Header('Location: /result.php');
 	}
 
+	//Checks the number of right answers after comparing to table 'solution'
 	function calculate_result() {
 		$result_sqli = new mysqli("localhost", "root", "", "test");
 		if($result_sqli){
@@ -87,6 +89,7 @@
 		}
 	}
 
+	//Save score in database
 	function set_result($result) {
 		$setresult_sqli = new mysqli("localhost", "root", "", "test");
 		if($setresult_sqli){

@@ -1,32 +1,22 @@
 <?php
 session_start();
-require_once('functions.php');
+require_once('functions_login.php');
 
 if(isset($_POST['username']) && isset($_POST['password'])){
 	
 	//login process
 	if (check_database("test", "localhost", "root", "")) {
 		$sqli = new mysqli("localhost", "root", "", "test");
-
 		if ($sqli){	
-			//check whether user with matching username and password exists in database
-			$stmt_checklogin = $sqli->prepare("SELECT * FROM users WHERE users.username = ? AND users.password = ?");
-			$stmt_checklogin->bind_param("ss", $_POST['username'], $_POST['password']);
-			$stmt_checklogin->execute();
-			$stmt_checklogin->store_result();
-
-			$row_cnt = $stmt_checklogin->num_rows;
-
 			//if user is found
-			if ($row_cnt == 1){
+			if (check_login($sqli, $_POST['username'], $_POST['password'])){
 				$_SESSION['username'] = $_POST['username'];
 				$_SESSION['user_id'] = get_user_id($sqli, $_POST['username']);
 				$_SESSION['result'] = 0;
 				Header ('Location: /test.php');
 			}
-			else {
+			else
 				echo "Username or Password incorrect!";
-			}
 		}
 	}
 	else

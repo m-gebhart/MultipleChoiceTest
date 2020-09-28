@@ -1,5 +1,5 @@
 <?php
-require_once('functions.php');
+require_once('functions_general.php');
 
 	//Creates Database 'test' with tables: users, save and solution
 	function create_test_database($host, $user, $password){
@@ -35,6 +35,7 @@ require_once('functions.php');
 	}
 
 	function register_user($sqli){
+
 		//create default save for save data
 		$stmt_save = $sqli->prepare("INSERT INTO save (one, two, three, four, five, result) VALUES (?, ?, ?, ?, ?, ?)");
 		if($stmt_save){
