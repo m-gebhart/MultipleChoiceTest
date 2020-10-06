@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('functions_general.php');
+require_once('functions_result.php');
 
 if(!isset($_SESSION['username']))
 	Header ('Location: /');

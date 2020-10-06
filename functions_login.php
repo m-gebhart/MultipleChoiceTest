@@ -1,4 +1,6 @@
 <?php
+
+
 require_once('functions_general.php');
 
 function check_login($sqli, $username, $password){

@@ -20,11 +20,11 @@
 			else $color="orange";
 			echo "style='color: ".$color."'" ?>
 		>
-		You have <?php echo $_SESSION["result"]?> out of 5 Right Answers!</p>
+		You have <?php echo get_result() ?> out of 5 Right Answers!</p>
 	</div>
 	<p>Would You Like to Improve Your Result?<br><a href="/test.php?on_retry=true"><i>Try it again!</i></a></p>
 	<form method="post" action="">
-			<button type="submit" name="log-out">log_out</button>
+			<button type="submit" name="log-out">LOG-OUT and SAVE</button>
 	</form>
 </body>
 </html>

@@ -84,7 +84,6 @@
 				if($array_save[$i] == $array_solution[$i])
 					$result++;
 			}
-			$_SESSION['result'] = $result;
 			set_result($result);
 		}
 	}

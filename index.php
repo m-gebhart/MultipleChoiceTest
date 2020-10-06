@@ -17,7 +17,7 @@
 			<button type="submit">LOG-IN</button>
 		</form>
 		<div style="color: red; text-align: center; margin-bottom:5vh">
-			<?php include 'action_login.php'?>
+			<?php include 'action_login.php'; ?>
 		</div>
 	</div>
 	<p>No Account?<br><a href="/register.php">Register Here!</a></p>

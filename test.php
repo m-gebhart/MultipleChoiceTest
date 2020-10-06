@@ -77,7 +77,7 @@
 				<input type="radio" class="choice-radio" id="5-3" name="five" value="3" <?php if(get_save_int('five') == 3) echo "checked"; ?>>
 			</label>
 		</div>
-		<button type="submit" name="submit">submit</button>
+		<button type="submit" name="submit">SUBMIT</button>
 	</form>
 </body>
 </html>
