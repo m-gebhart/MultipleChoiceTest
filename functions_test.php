@@ -85,6 +85,7 @@
 					$result++;
 			}
 			set_result($result);
+			//print_r($result);exit;
 		}
 	}
 
@@ -95,7 +96,7 @@
 			$stmt_setresult = $setresult_sqli->prepare("UPDATE save SET result = ? WHERE id = ?");
 			if ($stmt_setresult){
 				$stmt_setresult->bind_param("ii", $final_result, $_SESSION['user_id']);
-				$final_result = $_SESSION['result'];
+				$final_result = $result;
 				$stmt_setresult->execute();
 				$stmt_setresult->close();
 			}

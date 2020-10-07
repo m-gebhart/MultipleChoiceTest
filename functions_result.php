@@ -14,7 +14,7 @@ function get_result(){
 			return $value->result;
 		}
 	}
-	return 0;
+	return "error ".$_SESSION['user_id'];
 }
 
 ?>

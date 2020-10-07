@@ -15,8 +15,8 @@
 		<p 
 		<?php 
 			$color = ""; 
-			if($_SESSION["result"] == 5) $color="green"; 
-			elseif($_SESSION["result"] == 0) $color="red"; 
+			if(get_result() == 5) $color="green"; 
+			elseif(get_result() == 0) $color="red"; 
 			else $color="orange";
 			echo "style='color: ".$color."'" ?>
 		>
